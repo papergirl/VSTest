@@ -1,0 +1,9 @@
+﻿Build started 21/12/2014 21:11:55.
+     1>Project "D:\Programming\vstest\VSTest\ThirdParty\gtest-1.6.0\msvc\gtest2010.vcxproj" on node 2 (clean target(s)).
+     1>_PrepareForClean:
+         Deleting file "GladosFrame++ - 2010/Debug\gtest2010\gtest2010.lastbuildstate".
+     1>Done Building Project "D:\Programming\vstest\VSTest\ThirdParty\gtest-1.6.0\msvc\gtest2010.vcxproj" (clean target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.04

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="INSTALLLOCATION">
+            <Component Id="cmp46EA28134E7EBB8B1BD3C95B5BE47413" Guid="*">
+                <File Id="filB097527239511933497718FEA189806B" Source="$(var.CPPVSIX.TargetDir)\CPPVSIX.dll" />
+            </Component>
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="CPPVSIX.Binaries">
+            <ComponentRef Id="cmp46EA28134E7EBB8B1BD3C95B5BE47413" />
+        </ComponentGroup>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="INSTALLLOCATION">
+            <Component Id="cmpDE38E2D4C92C358BB1AD16447C535941" Guid="*">
+                <File Id="filDBCE652A23ADB9AB1A6BF97F93504692" Source="$(var.CPPVSIX.TargetDir)\CPPVSIX.pdb" />
+            </Component>
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="CPPVSIX.Symbols">
+            <ComponentRef Id="cmpDE38E2D4C92C358BB1AD16447C535941" />
+        </ComponentGroup>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="INSTALLLOCATION">
+            <Component Id="cmpE2EB7135C8172D5A0B3C034688D6C0CA" Guid="*">
+                <File Id="fil260143210DF4DB8B2A7D163E9EA58E2A" Source="$(var.CPPVSIX.ProjectDir)\CPPVSIX.csproj" />
+            </Component>
+            <Directory Id="dirE18B13C54F64329E2E9B643376A5DD9E" Name="Properties">
+                <Component Id="cmp2513F3D3BD582497D593E0D4AC1E1297" Guid="*">
+                    <File Id="fil9DD65B1DE633C263BA721C3F156BA8F3" Source="$(var.CPPVSIX.ProjectDir)\Properties\AssemblyInfo.cs" />
+                </Component>
+            </Directory>
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="CPPVSIX.Sources">
+            <ComponentRef Id="cmpE2EB7135C8172D5A0B3C034688D6C0CA" />
+            <ComponentRef Id="cmp2513F3D3BD582497D593E0D4AC1E1297" />
+        </ComponentGroup>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="CPPVSIX.Content" />
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="CPPVSIX.Satellites" />
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="CPPVSIX.Documents" />
+    </Fragment>
+</Wix>

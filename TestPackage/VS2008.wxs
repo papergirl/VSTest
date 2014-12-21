@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+
+  <Fragment>
+    <ComponentGroup Id="VS2008Group">
+      <Component Id="cmp631A2D9DD383A83D031A077EAE2DF880" Directory="INSTALLLOCATION" Guid="627EF758-FE89-4711-96D1-46335E124C6A">
+        <File Id="fil06612A05252852E0941ADDAC6697A375" Source="$(sys.SOURCEFILEDIR)bin\Debug2008\TestPackage.dll" />
+        <File Id="fil06612A05255rrwE0941ADDAC6697A375" Source="$(sys.SOURCEFILEDIR)bin\Debug2008\Microsoft.Contracts.dll" />
+      </Component>
+
+      <Component Id="cmp6AED032F0659F0B2FE939D4498DDA6F3" Directory="INSTALLLOCATION" Guid="4AB7E4EA-855E-4FB0-9CCF-B3AEAFC8926E">
+        <File Id="filE06A21486B6966F03DA447AC592C4D09" Source="$(sys.SOURCEFILEDIR)Resources\Package.ico" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+</Wix>

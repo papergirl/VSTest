@@ -1,0 +1,8 @@
+D:\Programming\vstest\DevenvSetupCustomAction\bin\Debug\DevenvSetupCustomAction.dll
+D:\Programming\vstest\DevenvSetupCustomAction\bin\Debug\DevenvSetupCustomAction.pdb
+D:\Programming\vstest\DevenvSetupCustomAction\bin\Debug\Interop.Shell32.dll
+D:\Programming\vstest\DevenvSetupCustomAction\obj\Debug\DevenvSetupCustomAction2010.csprojResolveAssemblyReference.cache
+D:\Programming\vstest\DevenvSetupCustomAction\obj\Debug\Interop.Shell32.dll
+D:\Programming\vstest\DevenvSetupCustomAction\obj\Debug\DevenvSetupCustomAction2010.csproj.ResolveComReference.cache
+D:\Programming\vstest\DevenvSetupCustomAction\obj\Debug\DevenvSetupCustomAction.dll
+D:\Programming\vstest\DevenvSetupCustomAction\obj\Debug\DevenvSetupCustomAction.pdb

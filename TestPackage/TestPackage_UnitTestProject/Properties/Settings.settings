@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="TestPackage_UnitTestProject.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="TestDataPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Users\sexyhotkat\Documents\Visual Studio 2008\Projects\vsgtest\testData</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

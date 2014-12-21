@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+
+  <?define LICENCE="$(var.ProjectDir)licence.rtf" ?>
+  <?define vsixLocation="VSIX\"?>
+  <Product Id="881585bd-4670-4648-ba5d-bdbf75bcb00b" 
+           Name="vsgtest"
+           Language="1033" 
+           Version="1.0.0.0" 
+           Manufacturer="KittyAlturistics" UpgradeCode="681114d8-fb82-4225-a778-d555f31e3413">
+    
+    <Package InstallerVersion="200" Compressed="yes" />
+    
+    <WixVariable Id="WixUILicense" Value="$(var.LICENCE)" />
+    
+		<Media Id="1" Cabinet="media1.cab" EmbedCab="yes" />
+    
+ 
+    <Property Id="VS2008INSTALLATIONFOLDER" Secure="yes">
+      <RegistrySearch Id="VS2008InstallationFolderRegistrySearchId" Type="raw"
+                      Root="HKLM" Key="SOFTWARE\Microsoft\VisualStudio\9.0" Name="InstallDir"></RegistrySearch>
+    </Property>
+    <Property Id="VS2010INSTALLATIONFOLDER" Secure="yes">
+      <RegistrySearch Id="VS2010InstallationFolderRegistrySearchId" Type="raw"
+                      Root="HKLM" Key="SOFTWARE\Microsoft\VisualStudio\10.0" Name="InstallDir"></RegistrySearch>
+    </Property>
+
+    <Condition Message="This add-in requires Visual Studio 2008 or 2010.">
+      Installed OR VS2008INSTALLATIONFOLDER OR VS2010INSTALLATIONFOLDER
+    </Condition>
+
+    <Condition Message="You need to be an administrator to install this product.">
+      Privileged
+    </Condition>
+    
+    <CustomAction Id='InstallToVS' Property='[VS2008INSTALLATIONFOLDER]\devenv' ExeCommand='/setup /nosetupvstemplates' Return='asyncNoWait' />
+
+    <CustomAction Id="SetVSIXInstaller" Return="check" Execute="immediate" Property="VSIXInstaller" Value="[VS2010INSTALLATIONFOLDER]VSIXInstaller.exe" />
+
+    <CustomAction Id="DeployVSIX" Property="VSIXInstaller" Execute="deferred" Impersonate="no" ExeCommand="/quiet" Return="asyncWait"/>
+    
+	<SetProperty Id="VS2010DIR" Value="[VS2010INSTALLATIONFOLDER]" After="CostInitialize"/>
+
+    <Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="INSTALLLOCATION" Name="GTest for Visual Studio">
+					 <Component Id="LicenceFileComponent" Guid="95FC1BB6-A273-4EF6-AF72-8A077E36BBF8">
+             <File Id="LicenceFile" Name="licence.rtf" Vital="yes" DiskId="1" Source="$(var.LICENCE)" />
+					 </Component>
+      </Directory>
+			</Directory>
+      <Directory Id="VS2010DIR" Name="[VS2010INSTALLATIONFOLDER]">
+        <Directory Id="EXTDIR" Name="Extensions">
+          <Directory Id="CompanyDir" Name="KittyAlturistics">
+            <Directory Id="ProductNameDir" Name="vsgtest">
+              <Directory Id="VersionDir" Name="1.0.0.0">
+                <Component Id="VS2010Component" Guid="3452A4D0-357F-4A41-92E2-C6E31C83AA6F">
+                  <File Id="VSIXManifest" Name="extension.vsixmanifest" Vital="yes" DiskId="1" Source="$(var.vsixLocation)extension.vsixmanifest" />
+                  <File Id="SettingsDll" Name="Microsoft.VisualStudio.Settings.dll" Vital="yes" DiskId="1" Source="$(var.vsixLocation)Microsoft.VisualStudio.Settings.dll" />
+                  <File Id="TestPackageDll" Name="TestPackage.dll" Vital="yes" DiskId="1" Source="$(var.vsixLocation)TestPackage.dll" />
+                  <File Id ="TestPackagePkgdef" Name="TestPackage.pkgdef" Vital="yes" DiskId="1" Source="$(var.vsixLocation)TestPackage.pkgdef" />
+                </Component>
+              </Directory>
+            </Directory>
+          </Directory>
+        </Directory>
+      </Directory>
+		</Directory>
+   
+		<Feature Id="CommonFeatures" Title="CPlusPlusTestRunnerInstaller" Level="1">
+      <ComponentRef  Id="LicenceFileComponent" Primary="yes" />
+
+      <Feature Id="VS2008INSTALLATIONFOLDER" Title="Visual Studio 2008"
+               Description="Installs the add-in for Visual Studio 2008." Level="1" AllowAdvertise="system">
+      
+        <Condition Level="0">NOT Installed AND NOT VS2008INSTALLATIONFOLDER</Condition>
+        <ComponentGroupRef Id="VS2008Group"/>
+        <ComponentGroupRef Id="VS2008Reg"/>
+      </Feature>
+
+      <Feature Id="VS2010INSTALLATIONFOLDER" Title="Visual Studio 2010"
+               Description="Installs the add-in for Visual Studio 2010." Level="1" AllowAdvertise="system">
+        
+        <Condition Level="0">NOT Installed AND NOT VS2010INSTALLATIONFOLDER</Condition>
+        <ComponentRef Id="VS2010Component" />
+      </Feature>
+
+		</Feature>
+
+    <InstallExecuteSequence>
+      <Custom Action='InstallToVS' After='InstallFinalize'>NOT Installed AND NOT VS2008INSTALLATIONFOLDER</Custom>
+    </InstallExecuteSequence>
+
+    
+    <UIRef Id="WixUI_FeatureTree" />
+    <UIRef Id="WixUI_ErrorProgressText" />
+	</Product>
+</Wix>

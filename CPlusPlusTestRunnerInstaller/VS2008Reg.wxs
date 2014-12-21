@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <ComponentGroup Id="VS2008Reg">
+            <Component Id="cmpF7F5D00E0156CEF153EBBC358FB34E19" Directory="TARGETDIR" Guid="130BC2FB-45BE-442A-B41A-0D071D7C8197" KeyPath="yes">
+                <RegistryKey Key="Software\Microsoft\VisualStudio\9.0\ToolWindows\{260a4c8d-f83c-4fd1-a498-d968a16a2f9f}" Root="HKLM">
+                    <RegistryValue Value="{3638ca64-a4ab-4847-a138-e73f78b4bdc9}" Type="string" />
+                    <RegistryValue Name="Name" Value="KittyAltruistic.CPlusPlusTestRunner.TestList" Type="string" />
+                    <RegistryValue Name="Orientation" Value="Bottom" Type="string" />
+                    <RegistryValue Name="Style" Value="Tabbed" Type="string" />
+                </RegistryKey>
+              <RegistryKey Key="Software\Microsoft\VisualStudio\9.0\Text Editor\External Markers\{E84F3B8E-57B5-468d-8855-DEECE929372C}" Root="HKLM">
+                <RegistryValue Value="GTestMarker" Type="string" />
+                <RegistryValue Name="Service" Value="{1CDF79C0-F788-4011-8CCB-5BC893DBC189}" Type="string" />
+                <RegistryValue Name="DisplayName" Value="My Custom Text Marker" Type="string" />
+                <RegistryValue Name="Package" Value="{3638ca64-a4ab-4847-a138-e73f78b4bdc9}" Type="string" />
+              </RegistryKey>
+              <RegistryKey Key="Software\Microsoft\VisualStudio\9.0\Menus" Root="HKLM">
+                <RegistryValue Name="{3638ca64-a4ab-4847-a138-e73f78b4bdc9}" Value=", 1000, 1" Type="string" />
+              </RegistryKey>
+              <RegistryKey Key="Software\Microsoft\VisualStudio\9.0\Services\{1cdf79c0-f788-4011-8ccb-5bc893dbc189}" Root="HKLM">
+                <RegistryValue Value="{3638ca64-a4ab-4847-a138-e73f78b4bdc9}" Type="string" />
+                <RegistryValue Name="Name" Value="Test Marker Service" Type="string" />
+              </RegistryKey>
+              <RegistryKey Key="Software\Microsoft\VisualStudio\9.0\InstalledProducts\TestPackage" Root="HKLM">
+                <RegistryValue Value="#110" Type="string" />
+                <RegistryValue Name="ProductDetails" Value="#112" Type="string" />
+                <RegistryValue Name="PID" Value="1.2" Type="string" />
+                <RegistryValue Name="LogoID" Value="#400" Type="string" />
+              </RegistryKey>
+              <RegistryKey Key="Software\Microsoft\VisualStudio\9.0\Packages\{3638ca64-a4ab-4847-a138-e73f78b4bdc9}" Root="HKLM">
+                <RegistryValue Value="KittyAltruistic.CPlusPlusTestRunner.TestPackage, TestPackage, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" Type="string" />
+                <RegistryValue Name="InprocServer32" Value="[WindowsFolder]System32\MSCOREE.DLL" Type="string" />
+                <RegistryValue Name="Class" Value="KittyAltruistic.CPlusPlusTestRunner.TestPackage" Type="string" />
+                <RegistryValue Name="Assembly" Value="TestPackage, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" Type="string" />
+                <RegistryValue Name="CodeBase" Value="[INSTALLLOCATION]\TestPackage.dll" Type="string" />
+              </RegistryKey>
+              <RegistryKey Key="Software\Microsoft\VisualStudio\9.0\AutoLoadPackages\{f1536ef8-92ec-443c-9ed7-fdadf150da82}" Root="HKLM">
+                <RegistryValue Name="{3638ca64-a4ab-4847-a138-e73f78b4bdc9}" Value="00000000" Type="integer" />
+                <RegistryValue Name="Name" Value="Test Marker Service" Type="string" />
+              </RegistryKey>
+              <RegistryKey Key="Software\Microsoft\VisualStudio\9.0\Packages\{3638ca64-a4ab-4847-a138-e73f78b4bdc9}" Root="HKLM">
+                <RegistryValue Name="ID" Value="00000001" Type="integer" />
+                <RegistryValue Name="MinEdition" Value="Standard" Type="string" />
+                <RegistryValue Name="ProductVersion" Value="1.0" Type="string" />
+                <RegistryValue Name="ProductName" Value="TestPackage" Type="string" />
+                <RegistryValue Name="CompanyName" Value="KittyAltruistic" Type="string" />
+              </RegistryKey>
+              <RegistryKey Key="Software\Microsoft\VisualStudio\9.0\ToolWindows\{21405fad-e758-4d3e-bf95-a717887b3406}" Root="HKLM">
+                <RegistryValue Value="{3638ca64-a4ab-4847-a138-e73f78b4bdc9}" Type="string" />
+                <RegistryValue Name="Name" Value="KittyAltruistic.CPlusPlusTestRunner.TestFailure" Type="string" />
+                <RegistryValue Name="Orientation" Value="Left" Type="string" />
+                <RegistryValue Name="Style" Value="Linked" Type="string" />
+              </RegistryKey>
+            </Component>
+        </ComponentGroup>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="TARGETDIR" />
+    </Fragment>
+</Wix>

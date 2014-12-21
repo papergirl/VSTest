@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="CPlusPlusTestRunner.Binaries" />
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="CPlusPlusTestRunner.Binaries">
+            <ComponentRef Id="cmp631A2D9DD383A83D031A077EAE2DF880" />
+        </ComponentGroup>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="CPlusPlusTestRunner.Content">
+            <Directory Id="dirFA69E36A00374712DDDE39F0E3EA474B" Name="Resources" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="CPlusPlusTestRunner.Content">
+            <ComponentRef Id="cmp6AED032F0659F0B2FE939D4498DDA6F3" />
+        </ComponentGroup>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="VS2008Group">
+            <Component Id="cmp631A2D9DD383A83D031A077EAE2DF880" Directory="CPlusPlusTestRunner.Binaries" Guid="PUT-GUID-HERE">
+                <File Id="fil06612A05252852E0941ADDAC6697A375" Source="$(var.CPlusPlusTestRunner.TargetDir)\TestPackage.dll" />
+            </Component>
+            <Component Id="cmp6AED032F0659F0B2FE939D4498DDA6F3" Directory="dirFA69E36A00374712DDDE39F0E3EA474B" Guid="PUT-GUID-HERE">
+                <File Id="filE06A21486B6966F03DA447AC592C4D09" Source="$(var.CPlusPlusTestRunner.ProjectDir)\Resources\Package.ico" />
+            </Component>
+        </ComponentGroup>
+    </Fragment>
+    <Fragment>
+        <DirectoryRef Id="dirFA69E36A00374712DDDE39F0E3EA474B" />
+    </Fragment>
+</Wix>
